@@ -36,9 +36,10 @@ process PARABRICKS_FQ2BAM {
     def known_sites_output = known_sites ? "--out-recal-file ${prefix}.table" : ""
     def interval_file_command = interval_file ? interval_file.collect { "--interval-file ${it}" }.join(' ') : ""
     """
-
     INDEX=`find -L ./ -name "*.amb" | sed 's/\\.amb\$//'`
     cp ${fasta} \$INDEX
+
+    sleep 2h
 
     pbrun \\
         fq2bam \\
