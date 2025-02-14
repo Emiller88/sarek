@@ -39,8 +39,6 @@ process PARABRICKS_FQ2BAM {
     INDEX=`find -L ./ -name "*.amb" | sed 's/\\.amb\$//'`
     cp ${fasta} \$INDEX
 
-    sleep 2h
-
     pbrun \\
         fq2bam \\
         --ref \$INDEX \\
@@ -55,7 +53,7 @@ process PARABRICKS_FQ2BAM {
         ${args} \\
         --monitor-usage \\
         --bwa-cpu-thread-pool 16 \\
-        --bwa-nstreams 3
+        --bwa-nstreams 1
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
