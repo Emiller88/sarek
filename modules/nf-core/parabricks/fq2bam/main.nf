@@ -53,7 +53,7 @@ process PARABRICKS_FQ2BAM {
         ${args} \\
         --monitor-usage \\
         --bwa-cpu-thread-pool 16 \\
-        --bwa-nstreams 2
+        --low-memory
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
